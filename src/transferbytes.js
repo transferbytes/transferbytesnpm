@@ -1,5 +1,5 @@
 XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var ROOT = 'http://www.transferbytes.io/co/transfering/call/ident/i=';
+var ROOT = 'https://www.transferbytes.io/co/transfering/call/ident/i=';
 
 module.exports = {
     connect: function (id, languaje, content, postId) {
