@@ -1,6 +1,9 @@
 # TransferBytes for nodejs
 This is a package to run TransferBytes in nodejs projects.
 
+## Start
+You should create a <a href="https://www.transferbytes.io/signin">TransferBytes account</a>.
+
 ## Install
     npm i transferbytes --save
 
