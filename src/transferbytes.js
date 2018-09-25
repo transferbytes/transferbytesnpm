@@ -1,7 +1,7 @@
 XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var ROOT = 'https://www.transferbytes.io/';
 
-var transferBytes = {
+module.exports = {
     connect: function ({id, license, languaje, content, idPost}) {
         idPost = idPost || 0;
 
