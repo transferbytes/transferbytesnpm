@@ -13,9 +13,12 @@ You should create a <a href="https://www.transferbytes.io/signin">TransferBytes 
 
     // Example list of names
 
-    transferbytes.connect(
-        '31af79360e7c1254deb8312318d36f87',
-        'EN'
-    ).then((result) => {
+    transferBytes.connect({
+        id: '31af79360e7c1254deb8312318d36f87',
+        license: 'aaa',
+        languaje: 'EN',
+        content: [],
+        idPost: 0
+    }).then((result) => {
         console.log(result);
     });

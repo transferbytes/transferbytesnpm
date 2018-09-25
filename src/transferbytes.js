@@ -1,9 +1,9 @@
 XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var ROOT = 'https://www.transferbytes.io/co/transfering/call/ident/i=';
+var ROOT = 'https://www.transferbytes.io/';
 
-module.exports = {
-    connect: function (id, languaje, content, postId) {
-        postId = postId || 0;
+var transferBytes = {
+    connect: function ({id, license, languaje, content, idPost}) {
+        idPost = idPost || 0;
 
         return uploadImages(content).then(function (content) {
             return new Promise(function (resolve, reject) {
@@ -11,7 +11,8 @@ module.exports = {
                 var data = 'data=' + JSON.stringify({
                     content: content,
                     languaje: languaje,
-                    postId: postId
+                    postId: idPost,
+                    license: license
                 });
 
                 xmlhttp.onreadystatechange = function () {
@@ -26,7 +27,7 @@ module.exports = {
                     }
                 };
 
-                xmlhttp.open('POST', ROOT + id, true);
+                xmlhttp.open('POST', ROOT + 'co/transfering/call/ident/i=' + id, true);
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xmlhttp.setRequestHeader('Action', id);
                 xmlhttp.send(data);
@@ -35,12 +36,14 @@ module.exports = {
             });
         });
     },
-    delete: function (postId) {
-        postId = postId || 0;
+    delete: function ({license, idPost}) {
+        idPost = idPost || 0;
+
         return new Promise(function (resolve, reject) {
             var xmlhttp = new XMLHttpRequest();
             var data = 'data=' + JSON.stringify({
-                postId: postId
+                postId: idPost,
+                license: license
             });
 
             xmlhttp.onreadystatechange = function () {
@@ -55,9 +58,10 @@ module.exports = {
                 }
             };
 
-            xmlhttp.open('POST', ROOT + postId, true);
+            xmlhttp.open('POST', ROOT + 'co/transfering/call/ident/i=' + idPost, true);
             xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xmlhttp.setRequestHeader('Action', 'deletePost');
+
             xmlhttp.send(data);
         }).then(function (result) {
             return result;
@@ -107,7 +111,7 @@ function sendFile(idElement, content) {
         formData.append('file', file);
         formData.append('data', JSON.stringify(content));
 
-        xmlhttp.open('POST', ROOT + 'uploadFiles', true);
+        xmlhttp.open('POST', ROOT + 'co/transfering/call/ident/i=' + 'uploadFiles', true);
         xmlhttp.setRequestHeader('Action', 'uploadFiles');
 
         xmlhttp.send(formData);
