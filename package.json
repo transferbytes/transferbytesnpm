@@ -1,6 +1,6 @@
 {
   "name": "transferbytes",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "TransferBytes connect",
   "main": "./dist/transferbytes.min.js",
   "scripts": {
