@@ -1,4 +1,6 @@
 XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var FormData = require('form-data');
+
 var ROOT = 'https://www.transferbytes.io/';
 
 module.exports = {

@@ -1,6 +1,6 @@
 {
   "name": "transferbytes",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "TransferBytes connect",
   "main": "./dist/transferbytes.min.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "TransferBytes",
   "license": "MIT",
   "dependencies": {
+    "form-data": "^2.3.3",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
