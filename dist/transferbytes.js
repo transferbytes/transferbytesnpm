@@ -105,31 +105,5 @@ function resolveAllpromises(promises, content) {
 }
 
 function sendFile(idElement, content) {
-    return new Promise(function (resolve, reject) {
-        var formData = new FormData();
-        var xmlhttp = new XMLHttpRequest();
-        var file = document.getElementById(idElement).files[0];
-
-        formData.append('file', file);
-        formData.append('data', JSON.stringify(content));
-
-        xmlhttp.open('POST', ROOT + 'co/transfering/call/ident/i=' + 'uploadFiles', true);
-        xmlhttp.setRequestHeader('Action', 'uploadFiles');
-
-        xmlhttp.send(formData);
-
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == xmlhttp.DONE) {
-                if (xmlhttp.status == 200) {
-                    resolve(xmlhttp.responseText);
-                } else if (xmlhttp.status == 400) {
-                    console.log('There was an error 400');
-                } else {
-                    console.log('Something else other than 200 was returned');
-                }
-            }
-        };
-    }).then(function (result) {
-        return result;
-    });
+   return 0;
 }
