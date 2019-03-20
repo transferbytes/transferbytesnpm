@@ -1,10 +1,8 @@
 XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var FormData = require('form-data');
-
 var ROOT = 'https://www.transferbytes.io/';
 
 module.exports = {
-    connect: function ({id, license, languaje, content, idPost}) {
+    connect: function ({id, key, language, content, idPost}) {
         idPost = idPost || 0;
 
         return uploadImages(content).then(function (content) {
@@ -12,9 +10,9 @@ module.exports = {
                 var xmlhttp = new XMLHttpRequest();
                 var data = 'data=' + JSON.stringify({
                     content: content,
-                    languaje: languaje,
+                    languaje: language,
                     postId: idPost,
-                    license: license
+                    license: key
                 });
 
                 xmlhttp.onreadystatechange = function () {
@@ -38,14 +36,15 @@ module.exports = {
             });
         });
     },
-    delete: function ({license, idPost}) {
+    
+    delete: function ({key, idPost}) {
         idPost = idPost || 0;
 
         return new Promise(function (resolve, reject) {
             var xmlhttp = new XMLHttpRequest();
             var data = 'data=' + JSON.stringify({
                 postId: idPost,
-                license: license
+                license: key
             });
 
             xmlhttp.onreadystatechange = function () {
